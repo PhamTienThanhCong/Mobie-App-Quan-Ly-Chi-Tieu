@@ -76,56 +76,48 @@
         android:layout_height="wrap_content" />
 
     <RelativeLayout
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:paddingLeft="16dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="16dp">
+
         <RadioGroup
             android:id="@+id/rdg_time"
             android:layout_width="wrap_content"
             android:layout_height="100dp">
+
             <RadioButton
                 android:id="@+id/rb_month"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checked="true"
                 android:text="Month"
-                android:textSize="16dp"
-                android:checked="true" />
+                android:textSize="16dp" />
+
             <RadioButton
                 android:id="@+id/rb_year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checked="false"
                 android:text="Year"
-                android:textSize="16dp"
-                android:checked="false" />
+                android:textSize="16dp" />
         </RadioGroup>
 
         <Spinner
             android:id="@+id/spn_month"
-            android:layout_marginTop="4dp"
-            android:layout_toRightOf="@id/rdg_time"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </Spinner>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@id/rdg_time"></Spinner>
 
         <Spinner
             android:id="@+id/spn_year"
-            android:visibility="gone"
-            android:layout_toRightOf="@id/rdg_time"
-            android:layout_marginTop="36dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </Spinner>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:layout_toRightOf="@id/rdg_time"
+            android:visibility="gone"></Spinner>
     </RelativeLayout>
-
-    <ImageView
-        android:id="@+id/img_chart"
-        android:src="@drawable/icon_chart"
-        android:layout_margin="32dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_width="50dp"
-        android:layout_height="50dp" />
 
     <ImageView
         android:id="@+id/img_text"

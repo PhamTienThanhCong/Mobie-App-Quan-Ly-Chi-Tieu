@@ -1119,7 +1119,6 @@ id icon_group
 id ifRoom
 id image
 id img_bill
-id img_chart
 id img_text
 id img_time
 id info

@@ -21,8 +21,6 @@ import java.lang.Override;
 public class OverViewFragment_ViewBinding implements Unbinder {
   private OverViewFragment target;
 
-  private View view2131230812;
-
   private View view2131230813;
 
   @UiThread
@@ -35,15 +33,6 @@ public class OverViewFragment_ViewBinding implements Unbinder {
     target.txtTotalRevenue = Utils.findRequiredViewAsType(source, R.id.txt_total_revenue, "field 'txtTotalRevenue'", TextView.class);
     target.txtTotalExpenditure = Utils.findRequiredViewAsType(source, R.id.txt_total_expenditure, "field 'txtTotalExpenditure'", TextView.class);
     target.txtSurplus = Utils.findRequiredViewAsType(source, R.id.txt_surplus, "field 'txtSurplus'", TextView.class);
-    view = Utils.findRequiredView(source, R.id.img_chart, "field 'imgChart' and method 'showChart'");
-    target.imgChart = Utils.castView(view, R.id.img_chart, "field 'imgChart'", ImageView.class);
-    view2131230812 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.showChart();
-      }
-    });
     view = Utils.findRequiredView(source, R.id.img_text, "field 'imgText' and method 'showText'");
     target.imgText = Utils.castView(view, R.id.img_text, "field 'imgText'", ImageView.class);
     view2131230813 = view;
@@ -74,7 +63,6 @@ public class OverViewFragment_ViewBinding implements Unbinder {
     target.txtTotalRevenue = null;
     target.txtTotalExpenditure = null;
     target.txtSurplus = null;
-    target.imgChart = null;
     target.imgText = null;
     target.rdgTime = null;
     target.rbMonth = null;
@@ -84,8 +72,6 @@ public class OverViewFragment_ViewBinding implements Unbinder {
     target.spnYear = null;
     target.txtMess = null;
 
-    view2131230812.setOnClickListener(null);
-    view2131230812 = null;
     view2131230813.setOnClickListener(null);
     view2131230813 = null;
   }

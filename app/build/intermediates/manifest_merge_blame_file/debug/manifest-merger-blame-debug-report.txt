@@ -10,74 +10,50 @@
 9        android:targetSdkVersion="32" />
 9-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml
 10
-11    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-11-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:5:5-79
-11-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:5:22-77
-12    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-12-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:6:5-70
-12-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:6:22-67
-13    <uses-permission android:name="android.permission.READ_SMS" />
-13-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:7:5-67
-13-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:7:22-64
-14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-14-->[io.realm:realm-android-library-object-server:5.0.0] C:\Users\congp\.gradle\caches\transforms-3\364af2c216ff510a5636bd459d4bdc07\transformed\realm-android-library-object-server-5.0.0\AndroidManifest.xml:10:5-79
-14-->[io.realm:realm-android-library-object-server:5.0.0] C:\Users\congp\.gradle\caches\transforms-3\364af2c216ff510a5636bd459d4bdc07\transformed\realm-android-library-object-server-5.0.0\AndroidManifest.xml:10:22-76
-15    <uses-permission android:name="android.permission.INTERNET" />
-15-->[io.realm:realm-android-library-object-server:5.0.0] C:\Users\congp\.gradle\caches\transforms-3\364af2c216ff510a5636bd459d4bdc07\transformed\realm-android-library-object-server-5.0.0\AndroidManifest.xml:11:5-67
-15-->[io.realm:realm-android-library-object-server:5.0.0] C:\Users\congp\.gradle\caches\transforms-3\364af2c216ff510a5636bd459d4bdc07\transformed\realm-android-library-object-server-5.0.0\AndroidManifest.xml:11:22-64
-16
-17    <application
-17-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:9:5-33:19
-18        android:name="com.example.qlct.app.RealmApplication"
-18-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:10:9-45
-19        android:allowBackup="true"
-19-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:11:9-35
-20        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
-20-->[com.android.support:support-compat:28.0.0] C:\Users\congp\.gradle\caches\transforms-3\dd4a8f18c4f5157bbdefb4e72f4b383c\transformed\support-compat-28.0.0\AndroidManifest.xml:22:18-91
-21        android:debuggable="true"
-22        android:icon="@mipmap/ic_launcher"
-22-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:12:9-43
-23        android:label="@string/app_name"
-23-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:13:9-41
-24        android:roundIcon="@mipmap/ic_launcher_round"
-24-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:14:9-54
-25        android:supportsRtl="true"
-25-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:15:9-35
-26        android:testOnly="true"
-27        android:theme="@style/AppTheme" >
-27-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:16:9-40
-28        <activity
-28-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:17:9-24:20
-29            android:name="com.example.qlct.activity.MainActivity"
-29-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:17:19-56
-30            android:exported="true" >
-30-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:18:13-36
-31            <intent-filter>
-31-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:19:13-23:29
-32                <action android:name="android.intent.action.MAIN" />
-32-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:20:17-69
-32-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:20:25-66
-33
-34                <category android:name="android.intent.category.LAUNCHER" />
-34-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:22:17-77
-34-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:22:27-74
-35            </intent-filter>
-36        </activity>
-37
-38        <receiver
-38-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:26:9-31:20
-39            android:name="com.example.qlct.message.MessageReceiver"
-39-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:26:19-58
-40            android:exported="false" >
-40-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:27:13-37
-41            <intent-filter android:priority="1000" >
-41-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:28:13-30:29
-41-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:28:28-51
-42                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-42-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:29:17-82
-42-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:29:25-79
-43            </intent-filter>
-44        </receiver>
-45    </application>
-46
-47</manifest>
+11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+11-->[io.realm:realm-android-library-object-server:5.0.0] C:\Users\congp\.gradle\caches\transforms-3\364af2c216ff510a5636bd459d4bdc07\transformed\realm-android-library-object-server-5.0.0\AndroidManifest.xml:10:5-79
+11-->[io.realm:realm-android-library-object-server:5.0.0] C:\Users\congp\.gradle\caches\transforms-3\364af2c216ff510a5636bd459d4bdc07\transformed\realm-android-library-object-server-5.0.0\AndroidManifest.xml:10:22-76
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->[io.realm:realm-android-library-object-server:5.0.0] C:\Users\congp\.gradle\caches\transforms-3\364af2c216ff510a5636bd459d4bdc07\transformed\realm-android-library-object-server-5.0.0\AndroidManifest.xml:11:5-67
+12-->[io.realm:realm-android-library-object-server:5.0.0] C:\Users\congp\.gradle\caches\transforms-3\364af2c216ff510a5636bd459d4bdc07\transformed\realm-android-library-object-server-5.0.0\AndroidManifest.xml:11:22-64
+13
+14    <application
+14-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:5:5-22:19
+15        android:name="com.example.qlct.app.RealmApplication"
+15-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:6:9-45
+16        android:allowBackup="true"
+16-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:7:9-35
+17        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+17-->[com.android.support:support-compat:28.0.0] C:\Users\congp\.gradle\caches\transforms-3\dd4a8f18c4f5157bbdefb4e72f4b383c\transformed\support-compat-28.0.0\AndroidManifest.xml:22:18-91
+18        android:debuggable="true"
+19        android:icon="@mipmap/ic_launcher"
+19-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:8:9-43
+20        android:label="@string/app_name"
+20-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:9:9-41
+21        android:roundIcon="@mipmap/ic_launcher_round"
+21-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:10:9-54
+22        android:supportsRtl="true"
+22-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:11:9-35
+23        android:testOnly="true"
+24        android:theme="@style/AppTheme" >
+24-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:12:9-40
+25        <activity
+25-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:13:9-20:20
+26            android:name="com.example.qlct.activity.MainActivity"
+26-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:13:19-56
+27            android:exported="true" >
+27-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:14:13-36
+28            <intent-filter>
+28-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:15:13-19:29
+29                <action android:name="android.intent.action.MAIN" />
+29-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:16:17-69
+29-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:16:25-66
+30
+31                <category android:name="android.intent.category.LAUNCHER" />
+31-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:18:17-77
+31-->D:\QuanLyChiTieu\app\src\main\AndroidManifest.xml:18:27-74
+32            </intent-filter>
+33        </activity>
+34    </application>
+35
+36</manifest>

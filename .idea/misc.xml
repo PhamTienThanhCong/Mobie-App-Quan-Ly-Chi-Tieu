@@ -5,7 +5,12 @@
       <map>
         <entry key="..\:/QuanLyChiTieu/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/QuanLyChiTieu/app/src/main/res/layout/dialog_add.xml" value="0.17028985507246377" />
+        <entry key="..\:/QuanLyChiTieu/app/src/main/res/layout/fragment_add.xml" value="0.17028985507246377" />
+        <entry key="..\:/QuanLyChiTieu/app/src/main/res/layout/fragment_overview.xml" value="0.17028985507246377" />
         <entry key="..\:/QuanLyChiTieu/app/src/main/res/layout/fragment_periodic.xml" value="0.17028985507246377" />
+        <entry key="..\:/QuanLyChiTieu/app/src/main/res/layout/fragment_sub.xml" value="0.17028985507246377" />
+        <entry key="..\:/QuanLyChiTieu/app/src/main/res/layout/item_add_sub.xml" value="0.17028985507246377" />
+        <entry key="..\:/QuanLyChiTieu/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.156" />
       </map>
     </option>
   </component>

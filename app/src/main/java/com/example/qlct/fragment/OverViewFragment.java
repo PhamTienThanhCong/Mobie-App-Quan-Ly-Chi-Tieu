@@ -52,8 +52,6 @@ public class OverViewFragment extends Fragment {
     TextView txtTotalExpenditure;
     @BindView(R.id.txt_surplus)
     TextView txtSurplus;
-    @BindView(R.id.img_chart)
-    ImageView imgChart;
     @BindView(R.id.img_text)
     ImageView imgText;
     @BindView(R.id.rdg_time)
@@ -131,7 +129,6 @@ public class OverViewFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 getDataMonth(i, Integer.parseInt(listYear.get(yearNow)));
                 initData();
-                initChartMonth();
             }
 
             @Override
@@ -156,7 +153,6 @@ public class OverViewFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 getDataYear(i);
                 initData();
-                initChartYear();
             }
 
             @Override
@@ -196,172 +192,6 @@ public class OverViewFragment extends Fragment {
         loChart.setVisibility(View.GONE);
     }
 
-    private void initChartMonth() {
-        chart.clear();
-        chart.setDescription(null);
-        chart.setPinchZoom(false);
-        chart.setScaleEnabled(false);
-        chart.setDrawBarShadow(false);
-        chart.setDrawGridBackground(false);
-
-        getListDataMonth();
-
-        int groupCount = 12;
-
-        ArrayList xVals = new ArrayList();
-        for(String x : listMonth){
-            String a = x.replace("Tháng ", "");
-            xVals.add(a);
-        }
-
-        ArrayList yVals1 = new ArrayList();
-        ArrayList yVals2 = new ArrayList();
-
-        yVals1.add(new BarEntry(1, (float) allAddMonth.get(0)));
-        yVals2.add(new BarEntry(1, (float) allSubMonth.get(0)));
-        yVals1.add(new BarEntry(2, (float) allAddMonth.get(1)));
-        yVals2.add(new BarEntry(2, (float) allSubMonth.get(1)));
-        yVals1.add(new BarEntry(3, (float) allAddMonth.get(2)));
-        yVals2.add(new BarEntry(3, (float) allSubMonth.get(2)));
-        yVals1.add(new BarEntry(4, (float) allAddMonth.get(3)));
-        yVals2.add(new BarEntry(4, (float) allSubMonth.get(3)));
-        yVals1.add(new BarEntry(5, (float) allAddMonth.get(4)));
-        yVals2.add(new BarEntry(5, (float) allSubMonth.get(4)));
-        yVals1.add(new BarEntry(6, (float) allAddMonth.get(5)));
-        yVals2.add(new BarEntry(6, (float) allSubMonth.get(5)));
-        yVals1.add(new BarEntry(7, (float) allAddMonth.get(6)));
-        yVals2.add(new BarEntry(7, (float) allSubMonth.get(6)));
-        yVals1.add(new BarEntry(8, (float) allAddMonth.get(7)));
-        yVals2.add(new BarEntry(8, (float) allSubMonth.get(7)));
-        yVals1.add(new BarEntry(9, (float) allAddMonth.get(8)));
-        yVals2.add(new BarEntry(9, (float) allSubMonth.get(8)));
-        yVals1.add(new BarEntry(10, (float) allAddMonth.get(9)));
-        yVals2.add(new BarEntry(10, (float) allSubMonth.get(9)));
-        yVals1.add(new BarEntry(11, (float) allAddMonth.get(10)));
-        yVals2.add(new BarEntry(11, (float) allSubMonth.get(10)));
-        yVals1.add(new BarEntry(12, (float) allAddMonth.get(11)));
-        yVals2.add(new BarEntry(12, (float) allSubMonth.get(11)));
-
-        BarDataSet set1, set2;
-        set1 = new BarDataSet(yVals1, "Thu");
-        set1.setColor(Color.RED);
-        set2 = new BarDataSet(yVals2, "Chi");
-        set2.setColor(Color.BLUE);
-        BarData data = new BarData(set1, set2);
-        data.setValueFormatter(new LargeValueFormatter());
-        chart.setData(data);
-        chart.getBarData().setBarWidth(barWidth);
-        chart.getXAxis().setAxisMinimum(0);
-        chart.getXAxis().setAxisMaximum(0 + chart.getBarData().getGroupWidth(groupSpace, barSpace) * groupCount);
-        chart.groupBars(0, groupSpace, barSpace);
-        chart.getData().setHighlightEnabled(false);
-        chart.invalidate();
-
-        Legend l = chart.getLegend();
-        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
-        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
-        l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
-        l.setDrawInside(true);
-        l.setYOffset(5f);
-        l.setXOffset(0f);
-        l.setYEntrySpace(0f);
-        l.setTextSize(8f);
-
-        //X-axis
-        XAxis xAxis = chart.getXAxis();
-        xAxis.setGranularity(1f);
-        xAxis.setGranularityEnabled(true);
-        xAxis.setCenterAxisLabels(true);
-        xAxis.setDrawGridLines(false);
-        xAxis.setAxisMaximum(12);
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setValueFormatter(new IndexAxisValueFormatter(xVals));
-        //Y-axis
-        chart.getAxisRight().setEnabled(false);
-        YAxis leftAxis = chart.getAxisLeft();
-        leftAxis.setValueFormatter(new LargeValueFormatter());
-        leftAxis.setDrawGridLines(true);
-        leftAxis.setSpaceTop(35f);
-        leftAxis.setAxisMinimum(0f);
-    }
-
-    private void initChartYear() {
-        chart.clear();
-        chart.setDescription(null);
-        chart.setPinchZoom(false);
-        chart.setScaleEnabled(false);
-        chart.setDrawBarShadow(false);
-        chart.setDrawGridBackground(false);
-
-        getListDataYear();
-
-        int groupCount = 8;
-
-        ArrayList xVals = (ArrayList) listYear;
-
-        ArrayList yVals1 = new ArrayList();
-        ArrayList yVals2 = new ArrayList();
-
-        yVals1.add(new BarEntry(1, (float) allAddYear.get(0)));
-        yVals2.add(new BarEntry(1, (float) allSubYear.get(0)));
-        yVals1.add(new BarEntry(2, (float) allAddYear.get(1)));
-        yVals2.add(new BarEntry(2, (float) allSubYear.get(1)));
-        yVals1.add(new BarEntry(3, (float) allAddYear.get(2)));
-        yVals2.add(new BarEntry(3, (float) allSubYear.get(2)));
-        yVals1.add(new BarEntry(4, (float) allAddYear.get(3)));
-        yVals2.add(new BarEntry(4, (float) allSubYear.get(3)));
-        yVals1.add(new BarEntry(5, (float) allAddYear.get(4)));
-        yVals2.add(new BarEntry(5, (float) allSubYear.get(4)));
-        yVals1.add(new BarEntry(6, (float) allAddYear.get(5)));
-        yVals2.add(new BarEntry(6, (float) allSubYear.get(5)));
-        yVals1.add(new BarEntry(7, (float) allAddYear.get(6)));
-        yVals2.add(new BarEntry(7, (float) allSubYear.get(6)));
-        yVals1.add(new BarEntry(8, (float) allAddYear.get(7)));
-        yVals2.add(new BarEntry(8, (float) allSubYear.get(7)));
-
-        BarDataSet set1, set2;
-        set1 = new BarDataSet(yVals1, "Thu");
-        set1.setColor(Color.RED);
-        set2 = new BarDataSet(yVals2, "Chi");
-        set2.setColor(Color.BLUE);
-        BarData data = new BarData(set1, set2);
-        data.setValueFormatter(new LargeValueFormatter());
-        chart.setData(data);
-        chart.getBarData().setBarWidth(barWidth);
-        chart.getXAxis().setAxisMinimum(0);
-        chart.getXAxis().setAxisMaximum(0 + chart.getBarData().getGroupWidth(groupSpace, barSpace) * groupCount);
-        chart.groupBars(0, groupSpace, barSpace);
-        chart.getData().setHighlightEnabled(false);
-        chart.invalidate();
-
-        Legend l = chart.getLegend();
-        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
-        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
-        l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
-        l.setDrawInside(true);
-        l.setYOffset(5f);
-        l.setXOffset(0f);
-        l.setYEntrySpace(0f);
-        l.setTextSize(8f);
-
-        //X-axis
-        XAxis xAxis = chart.getXAxis();
-        xAxis.setGranularity(1f);
-        xAxis.setGranularityEnabled(true);
-        xAxis.setCenterAxisLabels(true);
-        xAxis.setDrawGridLines(false);
-        xAxis.setAxisMaximum(8);
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setValueFormatter(new IndexAxisValueFormatter(xVals));
-        //Y-axis
-        chart.getAxisRight().setEnabled(false);
-        YAxis leftAxis = chart.getAxisLeft();
-        leftAxis.setValueFormatter(new LargeValueFormatter());
-        leftAxis.setDrawGridLines(true);
-        leftAxis.setSpaceTop(35f);
-        leftAxis.setAxisMinimum(0f);
-    }
-
     private void initView() {
         rdgTime.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @SuppressLint("ResourceAsColor")
@@ -376,7 +206,6 @@ public class OverViewFragment extends Fragment {
                         initData();
                     } else {
                         spnMonth.setVisibility(View.GONE);
-                        initChartMonth();
                     }
                 } else {
                     spnMonth.setVisibility(View.GONE);
@@ -385,39 +214,17 @@ public class OverViewFragment extends Fragment {
                         spnYear.setSelection(yearNow);
                         getDataYear(spnYear.getSelectedItemPosition());
                         initData();
-                    } else {
-                        spnYear.setVisibility(View.GONE);
-                        initChartYear();
                     }
                 }
             }
         });
     }
 
-    @SuppressLint("ResourceAsColor")
-    @OnClick(R.id.img_chart)
-    void showChart(){
-        loChart.setVisibility(View.VISIBLE);
-        loView.setVisibility(View.GONE);
-        imgChart.setVisibility(View.GONE);
-        imgText.setVisibility(View.VISIBLE);
-        isText = false;
-        if(rdgTime.getCheckedRadioButtonId() == R.id.rb_month){
-            spnYear.setVisibility(View.GONE);
-            spnMonth.setVisibility(View.GONE);
-            initChartMonth();
-        } else {
-            spnMonth.setVisibility(View.GONE);
-            spnYear.setVisibility(View.GONE);
-            initChartYear();
-        }
-    }
 
     @OnClick(R.id.img_text)
     void showText(){
         loChart.setVisibility(View.GONE);
         loView.setVisibility(View.VISIBLE);
-        imgChart.setVisibility(View.VISIBLE);
         imgText.setVisibility(View.GONE);
         isText = true;
         if(rdgTime.getCheckedRadioButtonId() == R.id.rb_month){
@@ -470,270 +277,5 @@ public class OverViewFragment extends Fragment {
                 yearNow = i;
             }
         }
-    }
-
-    List<Long> allAddMonth = new ArrayList<>();
-    List<Long> allSubMonth = new ArrayList<>();
-    private void getListDataMonth(){
-        realmController = new RealmController();
-        addList = realmController.getItemYear(1, Integer.parseInt(listYear.get(yearNow)));
-        subList = realmController.getItemYear(2, Integer.parseInt(listYear.get(yearNow)));
-        periodicList = realmController.getItemYear(3, Integer.parseInt(listYear.get(yearNow)));
-
-        long t1=0, t2=0, t3=0,t4=0,t5=0,t6=0,t7=0,t8=0,t9=0,t10=0,t11=0,t12 = 0;
-        for(Item i : addList){
-            switch (i.getMonth()){
-                case 1:
-                    t1 += i.getAmount();
-                    break;
-                case 2:
-                    t2 += i.getAmount();
-                    break;
-                case 3:
-                    t3 += i.getAmount();
-                    break;
-                case 4:
-                    t4 += i.getAmount();
-                    break;
-                case 5:
-                    t5 += i.getAmount();
-                    break;
-                case 6:
-                    t6 += i.getAmount();
-                    break;
-                case 7:
-                    t7 += i.getAmount();
-                    break;
-                case 8:
-                    t8 += i.getAmount();
-                    break;
-                case 9:
-                    t9 += i.getAmount();
-                    break;
-                case 10:
-                    t10 += i.getAmount();
-                    break;
-                case 11:
-                    t11 += i.getAmount();
-                    break;
-                case 12:
-                    t12 += i.getAmount();
-                    break;
-                default:
-                    break;
-            }
-        }
-        allAddMonth.add(t1);allAddMonth.add(t2);allAddMonth.add(t3);allAddMonth.add(t4);
-        allAddMonth.add(t5);allAddMonth.add(t6);allAddMonth.add(t7);allAddMonth.add(t8);
-        allAddMonth.add(t9);allAddMonth.add(t10);allAddMonth.add(t11);allAddMonth.add(t12);
-
-        t1=0; t2=0; t3=0; t4=0; t5=0; t6=0; t7=0; t8=0; t9=0; t10=0; t11=0; t12 = 0;
-        for(Item i : subList){
-            switch (i.getMonth()){
-                case 1:
-                    t1 += i.getAmount();
-                    break;
-                case 2:
-                    t2 += i.getAmount();
-                    break;
-                case 3:
-                    t3 += i.getAmount();
-                    break;
-                case 4:
-                    t4 += i.getAmount();
-                    break;
-                case 5:
-                    t5 += i.getAmount();
-                    break;
-                case 6:
-                    t6 += i.getAmount();
-                    break;
-                case 7:
-                    t7 += i.getAmount();
-                    break;
-                case 8:
-                    t8 += i.getAmount();
-                    break;
-                case 9:
-                    t9 += i.getAmount();
-                    break;
-                case 10:
-                    t10 += i.getAmount();
-                    break;
-                case 11:
-                    t11 += i.getAmount();
-                    break;
-                case 12:
-                    t12 += i.getAmount();
-                    break;
-                default:
-                    break;
-            }
-        }
-        allSubMonth.add(t1);allSubMonth.add(t2);allSubMonth.add(t3);allSubMonth.add(t4);
-        allSubMonth.add(t5);allSubMonth.add(t6);allSubMonth.add(t7);allSubMonth.add(t8);
-        allSubMonth.add(t9);allSubMonth.add(t10);allSubMonth.add(t11);allSubMonth.add(t12);
-
-        for(Item i : periodicList){
-            switch (i.getMonth()){
-                case 1:
-                    t1 += i.getAmount();
-                    break;
-                case 2:
-                    t2 += i.getAmount();
-                    break;
-                case 3:
-                    t3 += i.getAmount();
-                    break;
-                case 4:
-                    t4 += i.getAmount();
-                    break;
-                case 5:
-                    t5 += i.getAmount();
-                    break;
-                case 6:
-                    t6 += i.getAmount();
-                    break;
-                case 7:
-                    t7 += i.getAmount();
-                    break;
-                case 8:
-                    t8 += i.getAmount();
-                    break;
-                case 9:
-                    t9 += i.getAmount();
-                    break;
-                case 10:
-                    t10 += i.getAmount();
-                    break;
-                case 11:
-                    t11 += i.getAmount();
-                    break;
-                case 12:
-                    t12 += i.getAmount();
-                    break;
-                default:
-                    break;
-            }
-        }
-        allSubMonth.clear();
-        allSubMonth.add(t1);allSubMonth.add(t2);allSubMonth.add(t3);allSubMonth.add(t4);
-        allSubMonth.add(t5);allSubMonth.add(t6);allSubMonth.add(t7);allSubMonth.add(t8);
-        allSubMonth.add(t9);allSubMonth.add(t10);allSubMonth.add(t11);allSubMonth.add(t12);
-    }
-
-    List<Long> allAddYear = new ArrayList<>();
-    List<Long> allSubYear = new ArrayList<>();
-    private void getListDataYear(){
-        realmController = new RealmController();
-        addList = realmController.getItem(1);
-        subList = realmController.getItem(2);
-        periodicList = realmController.getItem(3);
-
-        long n2018=0, n2019=0, n2020=0,n2021=0,n2022=0,n2023=0,n2024=0,n2025=0;
-        for(Item i : addList){
-            switch (i.getYear()){
-                case 2018:
-                    n2018 += i.getAmount();
-                    break;
-                case 2019:
-                    n2019 += i.getAmount();
-                    break;
-                case 2020:
-                    n2020 += i.getAmount();
-                    break;
-                case 2021:
-                    n2021 += i.getAmount();
-                    break;
-                case 2022:
-                    n2022 += i.getAmount();
-                    break;
-                case 2023:
-                    n2023 += i.getAmount();
-                    break;
-                case 2024:
-                    n2024 += i.getAmount();
-                    break;
-                case 2025:
-                    n2025 += i.getAmount();
-                    break;
-                default:
-                    break;
-            }
-        }
-        allAddYear.add(n2018); allAddYear.add(n2019); allAddYear.add(n2020);
-        allAddYear.add(n2021); allAddYear.add(n2022); allAddYear.add(n2023);
-        allAddYear.add(n2024); allAddYear.add(n2025);
-
-
-        n2018=0; n2019=0; n2020=0; n2021=0; n2022=0; n2023=0; n2024=0; n2025=0;
-        for(Item i : subList){
-            switch (i.getYear()){
-                case 2018:
-                    n2018 += i.getAmount();
-                    break;
-                case 2019:
-                    n2019 += i.getAmount();
-                    break;
-                case 2020:
-                    n2020 += i.getAmount();
-                    break;
-                case 2021:
-                    n2021 += i.getAmount();
-                    break;
-                case 2022:
-                    n2022 += i.getAmount();
-                    break;
-                case 2023:
-                    n2023 += i.getAmount();
-                    break;
-                case 2024:
-                    n2024 += i.getAmount();
-                    break;
-                case 2025:
-                    n2025 += i.getAmount();
-                    break;
-                default:
-                    break;
-            }
-        }
-        allSubYear.add(n2018); allSubYear.add(n2019); allSubYear.add(n2020);
-        allSubYear.add(n2021); allSubYear.add(n2022); allSubYear.add(n2023);
-        allSubYear.add(n2024); allSubYear.add(n2025);
-
-        for(Item i : periodicList){
-            switch (i.getYear()){
-                case 2018:
-                    n2018 += i.getAmount();
-                    break;
-                case 2019:
-                    n2019 += i.getAmount();
-                    break;
-                case 2020:
-                    n2020 += i.getAmount();
-                    break;
-                case 2021:
-                    n2021 += i.getAmount();
-                    break;
-                case 2022:
-                    n2022 += i.getAmount();
-                    break;
-                case 2023:
-                    n2023 += i.getAmount();
-                    break;
-                case 2024:
-                    n2024 += i.getAmount();
-                    break;
-                case 2025:
-                    n2025 += i.getAmount();
-                    break;
-                default:
-                    break;
-            }
-        }
-        allSubYear.clear();
-        allSubYear.add(n2018); allSubYear.add(n2019); allSubYear.add(n2020);
-        allSubYear.add(n2021); allSubYear.add(n2022); allSubYear.add(n2023);
-        allSubYear.add(n2024); allSubYear.add(n2025);
     }
 }
