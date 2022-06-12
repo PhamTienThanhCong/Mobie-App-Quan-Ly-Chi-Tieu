@@ -1163,10 +1163,8 @@ id progress_circular
 id progress_horizontal
 id radio
 id rb_month
-id rb_periodic
 id rb_year
 id rcv_add
-id rcv_period
 id rcv_sub
 id rdg_time
 id right
@@ -1245,10 +1243,6 @@ id transition_scene_layoutid_cache
 id transition_transform
 id txt_amount
 id txt_name
-id txt_periodic_amount
-id txt_periodic_name
-id txt_periodic_time
-id txt_periodic_topic
 id txt_surplus
 id txt_time
 id txt_topic
@@ -1329,10 +1323,8 @@ layout design_text_input_password_icon
 layout dialog_add
 layout fragment_add
 layout fragment_overview
-layout fragment_periodic
 layout fragment_sub
 layout item_add_sub
-layout item_periodic
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action

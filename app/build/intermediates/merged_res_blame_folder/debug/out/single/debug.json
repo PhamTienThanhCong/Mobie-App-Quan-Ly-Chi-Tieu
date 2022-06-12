@@ -80,10 +80,6 @@
         "source": "D:\\QuanLyChiTieu\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\QuanLyChiTieu\\app\\build\\intermediates\\merged_res\\debug\\layout_item_periodic.xml.flat",
-        "source": "D:\\QuanLyChiTieu\\app\\src\\main\\res\\layout\\item_periodic.xml"
-    },
-    {
         "merged": "D:\\QuanLyChiTieu\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
         "source": "D:\\QuanLyChiTieu\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
     },
@@ -122,10 +118,6 @@
     {
         "merged": "D:\\QuanLyChiTieu\\app\\build\\intermediates\\merged_res\\debug\\layout_dialog_add.xml.flat",
         "source": "D:\\QuanLyChiTieu\\app\\src\\main\\res\\layout\\dialog_add.xml"
-    },
-    {
-        "merged": "D:\\QuanLyChiTieu\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_periodic.xml.flat",
-        "source": "D:\\QuanLyChiTieu\\app\\src\\main\\res\\layout\\fragment_periodic.xml"
     },
     {
         "merged": "D:\\QuanLyChiTieu\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
